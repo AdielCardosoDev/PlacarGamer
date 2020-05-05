@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Modal, SafeAreaView,  } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
   //Construção das Variaveis play1 
@@ -9,6 +10,9 @@ export default function App() {
   //Construção das Variaveis play2 
   const [ play2 ] = useState(1);
   const [ mais2, setMais2 ] = useState(0);
+
+  //Modal
+  const [ open, setOpen ] = useState(false);
   
   // função Ponto + play1
   function pontoPlay1(){
@@ -76,10 +80,39 @@ export default function App() {
         <Text style={styles.subDi} >DIGITE O NOME DO PLAY1 E PLAY2</Text>
         <Text style={styles.subDi} >JOGUE COM MODERAÇÃO :)</Text>
 
-        <TouchableOpacity  activeOpacity={0.7} >
+        <TouchableOpacity  activeOpacity={0.7}  onPress={()=> setOpen(true) } >
           <Text style={styles.sobre} >Sobre</Text>
         </TouchableOpacity>
 
+       <Modal  animationType='slide' transparent={false} visible={open} >
+
+          <SafeAreaView style={styles.modal} >
+
+            
+
+            <View style={styles.caixa} >
+              <Text style={styles.Sob} >Sobre!</Text>
+              <Text style={styles.P} >Olá meu nome é Adiel Cardoso, estudante de desenvolvimento mobile.</Text>
+              <Text style={styles.P} >Conheça mais!</Text>
+              <Text style={styles.P2} >instagram: @AdielDrummer</Text>
+              <Text style={styles.P2} >GitHab: github.com/AdielCardosoDev</Text>
+              
+              <Ionicons style={styles.icon}  name='ios-close' size={35} color='#000' />
+
+            </View>
+
+
+
+
+            
+
+
+          </SafeAreaView>
+           
+      
+       
+       
+       </Modal> 
 
       
 
@@ -112,17 +145,13 @@ const styles = StyleSheet.create({
     fontSize:30,
     fontWeight:'bold',
     marginTop:30,
-    margin:20,  
-       
-    
-       
+    margin:20,         
   },
   Alian:{
     flexDirection:'row',
    
       
-  },
- 
+  }, 
   res:{
     fontSize:30,
     fontWeight:'bold',
@@ -188,7 +217,47 @@ const styles = StyleSheet.create({
     marginTop:5,
     color:'#fff',
 
-  }
+  },
+  modal:{
+    flex:1,
+    backgroundColor:'#212121',
+    alignItems:'center',
+    justifyContent:'center',
+    padding:50,
+    
+  },
+  Sob:{
+    color:'#fff',
+    fontSize:35,
+    fontWeight:'bold',
+    marginTop:10
+
+  },
+  caixa:{
+    backgroundColor:'#FF5722',
+    width:'120%',
+    height:280,
+    marginTop:30,
+    borderRadius:4,
+    alignItems:'center'
+  },
+  P:{
+    color:'#000',
+    fontSize:18,
+    margin:20,
+    fontWeight:'bold',
+    textAlign:'center'
+  },
+  P2:{
+    fontSize:15,
+    fontWeight:'bold',
+    color:'#fff',
+  },
+  
+
+            
+
+
   
 
 });
