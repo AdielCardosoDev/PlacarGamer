@@ -1,37 +1,80 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar } from 'react-native';
 
 export default function App() {
+  //Construção das Variaveis play1 
+  const [ play1 ] = useState(1);
+  const [ mais1, setMais1 ] = useState(0);
+
+  //Construção das Variaveis play2 
+  const [ play2 ] = useState(1);
+  const [ mais2, setMais2 ] = useState(0);
+  
+  // função Ponto + play1
+  function pontoPlay1(){
+    setMais1(Number(play1) + Number(mais1));
+  }
+
+  // função Ponto + play2
+  function pontoPlay2(){
+    setMais2(Number(play2) + Number(mais2));
+    
+  }
+  // função zerar placar
+  function zerarPlacar(){
+    setMais1(0);
+    setMais2(0);
+  }
+
+  
   return (
     <View style={styles.container}>
+
+      <StatusBar barStyle='default' backgroundColor='#212121' />
+
       <Image  
       source={require('../placargamer/assets/controller.png')}
       style={styles.img} />
       <Text style={styles.title} >Placar Gamer</Text>
-
+      
       <View style={styles.Alian}>
-      <Text style={styles.play} >Play 01</Text>
-      <Text style={styles.play} >Play 02</Text>      
+      <TextInput style={styles.play} placeholder='PLAY1' placeholderTextColor='#FF5722' maxLength={7} />
+      <View/>
+      
+      <TextInput style={styles.play} placeholder='PLAY2' placeholderTextColor='#FF5722' maxLength={7}/>      
       </View>
 
       <View style={styles.alianRes}>
-      <Text style={styles.res} >0</Text>
-      <Text style={styles.res} >0</Text>
+      <Text style={styles.res} >{mais1}</Text>
+      <View/>
+      <View style={styles.alianRes2}></View>
+      <Text style={styles.res} >{mais2}</Text>
       </View>
 
       <View style={styles.alingBtn} >
-        <TouchableOpacity style={styles.btn} activeOpacity={0.7} >
+        <TouchableOpacity style={styles.btn} activeOpacity={0.7}
+        onPress={pontoPlay1} 
+        
+        >
           <Text style={styles.btnText} >+1</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn} activeOpacity={0.7} >
+        <TouchableOpacity style={styles.btn} activeOpacity={0.7}
+        onPress={pontoPlay2} 
+        >
           <Text style={styles.btnText} >+1</Text>
         </TouchableOpacity>
       </View>
 
-        <TouchableOpacity style={styles.zerar} activeOpacity={0.7} >
-          <Text style={styles.btnzerar} >Zerar Placar</Text>
+        <TouchableOpacity style={styles.zerar} activeOpacity={0.7}
+        onPress={zerarPlacar}
+        >      
+        <Text style={styles.btnzerar} >Zerar Placar</Text>
         </TouchableOpacity>
+
+        <Text style={styles.dicas} >Dicas !</Text>
+        <Text style={styles.subDi} >DIGITE O NOME DO PLAY1 E PLAY2</Text>
+        <Text style={styles.subDi} >JOGUE COM MODERAÇÃO :)</Text>
 
         <TouchableOpacity  activeOpacity={0.7} >
           <Text style={styles.sobre} >Sobre</Text>
@@ -68,14 +111,18 @@ const styles = StyleSheet.create({
     color:'#FF5722',
     fontSize:30,
     fontWeight:'bold',
-    marginTop:40,
-    margin:20,
+    marginTop:30,
+    margin:20,  
+       
+    
        
   },
   Alian:{
     flexDirection:'row',
+   
       
   },
+ 
   res:{
     fontSize:30,
     fontWeight:'bold',
@@ -128,10 +175,20 @@ const styles = StyleSheet.create({
   sobre:{
     fontSize:20,
     fontWeight:'bold',
-    color:'#fff',
-    padding:150
+    color:'#D32F2F',
+    padding:50
   },
-    
+  dicas:{
+    marginTop:20,
+    color:'#fff',
+    fontSize:20,
+    fontWeight:'bold'
+  },
+  subDi:{
+    marginTop:5,
+    color:'#fff',
+
+  }
   
 
 });
