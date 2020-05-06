@@ -86,9 +86,7 @@ export default function App() {
 
        <Modal  animationType='slide' transparent={false} visible={open} >
 
-          <SafeAreaView style={styles.modal} >
-
-            
+          <SafeAreaView style={styles.modal} >            
 
             <View style={styles.caixa} >
               <Text style={styles.Sob} >Sobre!</Text>
@@ -97,21 +95,15 @@ export default function App() {
               <Text style={styles.P2} >instagram: @AdielDrummer</Text>
               <Text style={styles.P2} >GitHab: github.com/AdielCardosoDev</Text>
               
-              <Ionicons style={styles.icon}  name='ios-close' size={35} color='#000' />
+              <TouchableOpacity style={styles.close} activeOpacity={0.7} onPress={()=> setOpen(false)} >
+               <Ionicons   name='ios-close' size={35} color='#fff' />
+              </TouchableOpacity>
 
-            </View>
-
-
-
-
-            
+            </View>           
 
 
-          </SafeAreaView>
-           
-      
-       
-       
+          </SafeAreaView>        
+
        </Modal> 
 
       
@@ -253,6 +245,10 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     color:'#fff',
   },
+  close:{
+    right:-155,
+    bottom:270
+  }
   
 
             
