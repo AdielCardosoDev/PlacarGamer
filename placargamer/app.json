@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "placargamer",
-    "slug": "placargamer",
+    "name": "Placar Gamer",
+    "slug": "Placar Gamer",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"      
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +12,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#212121"
+      "backgroundColor": "#fff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +21,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.acdeveloper.PlacarGamer"
+    },
+    "android": {
+      "package": "com.acdeveloper.PlacarGamer",
+      "versionCode": 1.0
+      
     }
+    
   }
 }
