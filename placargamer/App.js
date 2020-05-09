@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Modal, SafeAreaView,  } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Modal, SafeAreaView, Linking  } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
@@ -84,32 +84,35 @@ export default function App() {
           <Text style={styles.sobre} >Sobre</Text>
         </TouchableOpacity>
 
-       <Modal  animationType='slide' transparent={false} visible={open} >
+       <Modal  animationType='slide' transparent={false} visible={open} >      
+       
 
-          <SafeAreaView style={styles.modal} >            
+          <SafeAreaView style={styles.modal} >     
 
+               
+          
             <View style={styles.caixa} >
+
+           
+
               <Text style={styles.Sob} >Sobre!</Text>
-              <Text style={styles.P} >Olá meu nome é Adiel Cardoso, estudante de desenvolvimento mobile.</Text>
+              <Text style={styles.P} >Olá, meu nome é Adiel Cardoso, sou estudante de desenvolvimento Mobile.</Text>
               <Text style={styles.P} >Conheça mais!</Text>
-              <Text style={styles.P2} >instagram: @AdielDrummer</Text>
-              <Text style={styles.P2} >GitHab: github.com/AdielCardosoDev</Text>
-              
-              <TouchableOpacity style={styles.close} activeOpacity={0.7} onPress={()=> setOpen(false)} >
-               <Ionicons   name='ios-close' size={35} color='#fff' />
-              </TouchableOpacity>
+              <Text style={styles.P2} onPress={()=>{Linking.openURL('https://www.instagram.com/adieldrummer/')}}>instagram: @AdielDrummer</Text>
+              <Text style={styles.P2} onPress={()=>{Linking.openURL('https://github.com/AdielCardosoDev')}} >GitHab: Github.com/AdielCardosoDev</Text>        
+             
 
             </View>           
+
+         <TouchableOpacity style={styles.close} activeOpacity={0.7} onPress={()=> setOpen(false)} >
+          <Ionicons style={{marginLeft:5, marginRight:5}}  name='ios-arrow-dropleft' size={40} color='#fff' />
+          
+         </TouchableOpacity> 
 
 
           </SafeAreaView>        
 
-       </Modal> 
-
-      
-
-
-
+       </Modal>    
 
 
     </View>
@@ -197,7 +200,7 @@ const styles = StyleSheet.create({
   sobre:{
     fontSize:20,
     fontWeight:'bold',
-    color:'#D32F2F',
+    color:'#FF5722',
     padding:50
   },
   dicas:{
@@ -247,14 +250,12 @@ const styles = StyleSheet.create({
     color:'#fff',
   },
   close:{
-    right:-140,
-    bottom:265
-  }
+    marginLeft:10,
+    marginTop:20,
+    flexDirection:'row', 
+    
+  },
   
-
-            
-
-
   
 
 });

@@ -1,9 +1,8 @@
 {
   "expo": {
     "name": "Placar Gamer",
-    "slug": "Placar Gamer",
-    "platforms": [
-      "ios",
+    "slug": "PlacarGamer",
+    "platforms": [      
       "android"      
     ],
     "version": "1.0.0",
@@ -19,14 +18,13 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.acdeveloper.PlacarGamer"
-    },
+    ],  
     "android": {
-      "package": "com.acdeveloper.PlacarGamer",
-      "versionCode": 1.0
+      "package": "com.acdeveloper.PlacarGamer"          
+    },
+    "androidStatusBar":{
+      "barStyle": "light-content",
+      "backgroundColor":"#fff"
       
     }
     
