@@ -62,12 +62,14 @@ export default function App() {
         >
           <Text style={styles.btnText} >+1</Text>
         </TouchableOpacity>
-
+        
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
         onPress={pontoPlay2} 
         >
           <Text style={styles.btnText} >+1</Text>
         </TouchableOpacity>
+
+       
       </View>
 
         <TouchableOpacity style={styles.zerar} activeOpacity={0.7}
@@ -168,7 +170,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
   },
   btn:{
-    width:100,
+    width:45,
     height:45,
     backgroundColor: '#fff',
     borderRadius:4,
