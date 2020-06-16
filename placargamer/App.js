@@ -56,21 +56,35 @@ export default function App() {
       </View>
 
       <View style={styles.alingBtn} >
+        
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
-        onPress={pontoPlay1} 
-        
+        onPress={pontoPlay1}         
         >
-          <Text style={styles.btnText} >+1</Text>
+          <Text style={styles.btnText} >+</Text>
         </TouchableOpacity>
-        
+      
+        <TouchableOpacity style={styles.btn} activeOpacity={0.7}
+        onPress={pontoPlay1}         
+        >
+          <Text style={styles.btnText} >-</Text>
+        </TouchableOpacity>
+       
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
         onPress={pontoPlay2} 
         >
-          <Text style={styles.btnText} >+1</Text>
+          <Text style={styles.btnText} >+</Text>
+        </TouchableOpacity> 
+
+        <TouchableOpacity style={styles.btn} activeOpacity={0.7}
+        onPress={pontoPlay1}         
+        >
+          <Text style={styles.btnText} >-</Text>
         </TouchableOpacity>
 
+        
        
       </View>
+      
 
         <TouchableOpacity style={styles.zerar} activeOpacity={0.7}
         onPress={zerarPlacar}
@@ -166,17 +180,21 @@ const styles = StyleSheet.create({
   alianRes:{
     flexDirection:'row',
   },
+  
   alingBtn:{
     flexDirection:'row',
+
+    
   },
   btn:{
-    width:45,
-    height:45,
+    width:40,
+    height:40,
     backgroundColor: '#fff',
     borderRadius:4,
-    margin:20,
+    margin:15,
     marginTop:0,
-    justifyContent:'center',  
+    justifyContent:'center', 
+    marginHorizontal:14
 
   },
   btnText:{
