@@ -11,8 +11,7 @@ export default function App() {
   const [ play2 ] = useState(1);
   const [ mais2, setMais2 ] = useState(0);
 
-  //Modal
-  const [ open, setOpen ] = useState(false);
+ 
   
   // função Ponto + play1
   function pontoPlay1(){
@@ -22,6 +21,11 @@ export default function App() {
   // função Ponto + play2
   function pontoPlay2(){
     setMais2(Number(play2) + Number(mais2));
+    
+  }
+   // função Ponto + play2
+   function pontoMPlay2(){
+    setMais2(Number(play2) - 1);
     
   }
   // função zerar placar
@@ -76,7 +80,7 @@ export default function App() {
         </TouchableOpacity> 
 
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
-        onPress={pontoPlay1}         
+        onPress={pontoMPlay2}         
         >
           <Text style={styles.btnText} >-</Text>
         </TouchableOpacity>
@@ -94,41 +98,7 @@ export default function App() {
 
         <Text style={styles.dicas} >Dicas !</Text>
         <Text style={styles.subDi} >DIGITE O NOME DO PLAY1 E PLAY2</Text>
-        <Text style={styles.subDi} >JOGUE COM MODERAÇÃO :)</Text>
-
-        <TouchableOpacity  activeOpacity={0.7}  onPress={()=> setOpen(true) } >
-          <Text style={styles.sobre} >Sobre</Text>
-        </TouchableOpacity>
-
-       <Modal  animationType='slide' transparent={false} visible={open} >      
-       
-
-          <SafeAreaView style={styles.modal} >     
-
-               
-          
-            <View style={styles.caixa} >
-
-           
-
-              <Text style={styles.Sob} >Sobre!</Text>
-              <Text style={styles.P} >Olá, meu nome é Adiel Cardoso, sou estudante de desenvolvimento Mobile.</Text>
-              <Text style={styles.P} >Conheça mais!</Text>
-              <Text style={styles.P2} onPress={()=>{Linking.openURL('https://www.instagram.com/adieldrummer/')}}>instagram: @AdielDrummer</Text>
-              <Text style={styles.P2} onPress={()=>{Linking.openURL('https://github.com/AdielCardosoDev')}} >GitHab: Github.com/AdielCardosoDev</Text>        
-             
-
-            </View>           
-
-         <TouchableOpacity style={styles.close} activeOpacity={0.7} onPress={()=> setOpen(false)} >
-          <Ionicons style={{marginLeft:5, marginRight:5}}  name='ios-arrow-dropleft' size={40} color='#fff' />
-          
-         </TouchableOpacity> 
-
-
-          </SafeAreaView>        
-
-       </Modal>    
+        <Text style={styles.subDi} >JOGUE COM MODERAÇÃO :)</Text>        
 
 
     </View>
