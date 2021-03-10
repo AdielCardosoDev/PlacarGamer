@@ -1,37 +1,50 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Modal, SafeAreaView, Linking  } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Alert, } from 'react-native';
 
 export default function App() {
   //Construção das Variaveis play1 
-  const [ play1 ] = useState(1);
-  const [ mais1, setMais1 ] = useState(0);
+  const [ play1, setPlay1 ] = useState(0);  
 
   //Construção das Variaveis play2 
-  const [ play2 ] = useState(1);
-  const [ mais2, setMais2 ] = useState(0);
-
- 
+  const [ play2, setPlay2 ] = useState(0); 
   
   // função Ponto + play1
   function pontoPlay1(){
-    setMais1(Number(play1) + Number(mais1));
+    setPlay1(parseInt(play1) +1  )
   }
 
   // função Ponto + play2
   function pontoPlay2(){
-    setMais2(Number(play2) + Number(mais2));
+    setPlay2(parseInt(play2) +1)    
+  }
+  
+   // função Ponto - play2
+   function  menosPlay1(){
+    setPlay1(parseInt(play1) - 1);
     
   }
-   // função Ponto + play2
-   function pontoMPlay2(){
-    setMais2(Number(play2) - 1);
+
+  // função ponto - play2 
+   function menosPlay2(){
+    setPlay2(parseInt(play2) - 1);
     
+  }
+
+  // função terminal partida
+  function finalizar(){
+    if(play1 > play2){
+      Alert.alert("Play 1 Ganhou! ")
+    }else if(play1 == play2){
+      Alert.alert("Empate!")
+    }else{
+      Alert.alert("Play 2 Ganhou!")
+    }
+    zerarPlacar();
   }
   // função zerar placar
   function zerarPlacar(){
-    setMais1(0);
-    setMais2(0);
+    setPlay1(0);
+    setPlay2(0);
   }
 
   
@@ -53,13 +66,13 @@ export default function App() {
       </View>
 
       <View style={styles.alianRes}>
-      <Text style={styles.res} >{mais1}</Text>
+      <Text style={styles.res} >{play1}</Text>
       <View/>
       <View style={styles.alianRes2}></View>
-      <Text style={styles.res} >{mais2}</Text>
+      <Text style={styles.res} >{play2}</Text>
       </View>
 
-      <View style={styles.alingBtn} >
+      <View style={styles.alingBtn} >        
         
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
         onPress={pontoPlay1}         
@@ -68,10 +81,10 @@ export default function App() {
         </TouchableOpacity>
       
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
-        onPress={pontoPlay1}         
+        onPress={menosPlay1}         
         >
           <Text style={styles.btnText} >-</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>        
        
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
         onPress={pontoPlay2} 
@@ -80,7 +93,7 @@ export default function App() {
         </TouchableOpacity> 
 
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
-        onPress={pontoMPlay2}         
+        onPress={menosPlay2}         
         >
           <Text style={styles.btnText} >-</Text>
         </TouchableOpacity>
@@ -94,6 +107,12 @@ export default function App() {
         onPress={zerarPlacar}
         >      
         <Text style={styles.btnzerar} >Zerar Placar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.zerar} activeOpacity={0.7}
+        onPress={finalizar}
+        >      
+        <Text style={styles.btnzerar} >Termina Partida</Text>
         </TouchableOpacity>
 
         <Text style={styles.dicas} >Dicas !</Text>
@@ -114,8 +133,7 @@ const styles = StyleSheet.create({
   },
   img:{
     width:100,
-    height:100,
-    marginTop:13,
+    height:100,    
   },
   title:{
     fontSize:40,
@@ -151,11 +169,12 @@ const styles = StyleSheet.create({
     flexDirection:'row',
   },
   
-  alingBtn:{
+  alingBtn:{    
     flexDirection:'row',
-
+    
     
   },
+
   btn:{
     width:40,
     height:40,
@@ -179,6 +198,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#D32F2F',
     borderRadius:4,
     justifyContent:'center',   
+    margin:5,
     
   },
   btnzerar:{
