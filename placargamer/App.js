@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Alert, } from 'react-native';
 
 export default function App() {
@@ -29,6 +29,8 @@ export default function App() {
     setPlay2(parseInt(play2) - 1);
     
   }
+
+  
 
   // função terminal partida
   function finalizar(){
