@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Alert, } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, StatusBar, Alert, Modal, } from 'react-native';
 
 export default function App() {
+
+  const [modal, setModal] = useState('false');
+
+
+
+
   //Construção das Variaveis play1 
   const [ play1, setPlay1 ] = useState(0);  
 
@@ -53,7 +59,7 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <StatusBar barStyle='default' backgroundColor='#212121' />
+      <StatusBar barStyle='dark-content' backgroundColor='#ffffff' />
 
       <Image  
       source={require('../placargamer/assets/controller.png')}
@@ -61,10 +67,10 @@ export default function App() {
       <Text style={styles.title} >Placar Gamer</Text>
       
       <View style={styles.Alian}>
-      <TextInput style={styles.play} placeholder='PLAY1' placeholderTextColor='#FF5722' maxLength={7} />
+      <TextInput style={styles.play} placeholder='PLAY1' placeholderTextColor='#db1d4b' maxLength={7} />
       <View/>
       
-      <TextInput style={styles.play} placeholder='PLAY2' placeholderTextColor='#FF5722' maxLength={7}/>      
+      <TextInput style={styles.play} placeholder='PLAY2' placeholderTextColor='#db1d4b' maxLength={7}/>      
       </View>
 
       <View style={styles.alianRes}>
@@ -75,6 +81,10 @@ export default function App() {
       </View>
 
       <View style={styles.alingBtn} >        
+        
+        <View style={{backgroundColor:'red',  width: 200, justifyContent:'space-around', alignItems:'center',
+      flexDirection:'row' }} >
+
         
         <TouchableOpacity style={styles.btn} activeOpacity={0.7}
         onPress={pontoPlay1}         
@@ -99,7 +109,7 @@ export default function App() {
         >
           <Text style={styles.btnText} >-</Text>
         </TouchableOpacity>
-
+      </View>
         
        
       </View>
@@ -119,7 +129,34 @@ export default function App() {
 
         <Text style={styles.dicas} >Dicas !</Text>
         <Text style={styles.subDi} >DIGITE O NOME DO PLAY1 E PLAY2</Text>
-        <Text style={styles.subDi} >JOGUE COM MODERAÇÃO :)</Text>        
+        <Text style={styles.subDi} >JOGUE COM MODERAÇÃO :)</Text>
+
+        <TouchableOpacity onPress={()=> setModal(true)}>
+          <Text>Modal</Text>
+        </TouchableOpacity>
+
+
+        <Modal visible={modal} >
+         <TouchableOpacity onPress={()=> setModal(false)}>
+          <Text>Modal</Text>
+        </TouchableOpacity>
+
+        <View style={{backgroundColor:'red', height:200, justifyContent:'space-around', flexDirection:'row'  }} >
+
+          <TouchableOpacity >
+          <Text>+</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity >
+          <Text>+</Text>
+        </TouchableOpacity>
+
+
+
+
+        </View>
+        
+        </Modal>        
 
 
     </View>
@@ -129,7 +166,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#212121',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent:'center'    
   },
@@ -140,7 +177,7 @@ const styles = StyleSheet.create({
   title:{
     fontSize:40,
     fontWeight:'bold',
-    color:'#FF5722'
+    color:'#db1d4b'
   },
   play:{
     color:'#FF5722',
@@ -150,8 +187,7 @@ const styles = StyleSheet.create({
     margin:20,         
   },
   Alian:{
-    flexDirection:'row',
-   
+    flexDirection:'row',  
       
   }, 
   res:{
@@ -160,7 +196,7 @@ const styles = StyleSheet.create({
     marginTop:0,
     margin:20,
     color:'#fff',
-    backgroundColor:'#D32F2F',
+    backgroundColor:'#132743',
     width:100,
     height:45,
     textAlign:'center',
@@ -180,7 +216,7 @@ const styles = StyleSheet.create({
   btn:{
     width:40,
     height:40,
-    backgroundColor: '#fff',
+    backgroundColor: '#132743',
     borderRadius:4,
     margin:15,
     marginTop:0,
