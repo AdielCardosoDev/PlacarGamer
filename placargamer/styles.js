@@ -61,11 +61,40 @@ const styles = StyleSheet.create({
     fontSize:50,
     color:'#fff',
     textAlign:'center',
-    marginTop:-15
+    marginTop:-15    
+  },
+  zerar:{
+    width:"60%",
+    height:40,
+    backgroundColor:'#ff6187',
+    borderRadius:4,
+    justifyContent:'center',   
+    margin:5,    
+  },
+  btnzerar:{
+    color:'#132743',
+    textAlign:'center',
+    fontWeight:'bold',
+    fontSize:20,
+  },
+  sobre:{
+    fontSize:20,
+    fontWeight:'bold',
+    color:'#132743',
+    padding:50
+  },
+  dicas:{
+    marginTop:20,
+    color:'#132743',
+    fontSize:20,
+    fontWeight:'bold'
+  },
+  subDi:{
+    marginTop:5,
+    color:'#132743',
+    fontWeight:'bold'
 
-    
-  }
-    
+  },
     
     
        
