@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     justifyContent:'center'    
   },
     img:{
-    width:100,
-    height:100,    
+    width:130,
+    height:130,    
   },
   title:{
     fontSize:50,
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold'
   },
   bloco1:{
-    height:150,
+    height:145,
     width:150,
     borderRadius:2,
     borderWidth:2,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     color:'#132743',
   },
   res:{    
-    height:50,
+    height:45,
     textAlign:'center',    
     fontSize:30,
     fontWeight:'bold',    
@@ -95,6 +95,15 @@ const styles = StyleSheet.create({
     fontWeight:'bold'
 
   },
+  x:{    
+    alignItems: 'center',
+    justifyContent:'center'    
+  },
+  xTex:{
+    fontWeight:'bold',
+    color: '#132743',
+    fontSize: 35
+  }
     
     
        

@@ -28,19 +28,16 @@ export default function App(){
   // função ponto - play2 
    function menosPlay2(){
     setPlay2(parseInt(play2) - 1);
-    
   }
-
-  
 
   // função terminal partida
   function finalizar(){
     if(play1 > play2){
-      Alert.alert('PLAY 1 GANHOU!')
+      Alert.alert(`PLAY 1 GANHOU!`);
     }else if(play1 == play2){
       Alert.alert("EMPATE!")
     }else{
-      Alert.alert("PLAY 2 GANHOU!")
+      Alert.alert("PLAY 2 GANHOU!");
     }
     zerarPlacar();
   }
@@ -49,6 +46,8 @@ export default function App(){
     setPlay1(0);
     setPlay2(0);
   }
+
+  const [inPlay, setInplay] = useState('');
     return (
         <View style={styles.container}>
             <StatusBar barStyle='dark-content' backgroundColor='#ffffff' />
@@ -61,7 +60,9 @@ export default function App(){
 
                 <View style={styles.bloco1} >
 
-                    <TextInput style={styles.play} placeholder='PLAY 1' placeholderTextColor='#123743' maxLength={7} />
+                    <TextInput style={styles.play} placeholder='PLAY 1' placeholderTextColor='#123743' maxLength={7} 
+                    onChangeText={(val) => setInplay(val)}
+                    />
                     <Text style={styles.res} >{play1}</Text>
                     
                     <View style={styles.cont}>
@@ -77,7 +78,11 @@ export default function App(){
                           <Text style={styles.btnTextm} >-</Text>
                         </TouchableOpacity>
                     </View>
-                     
+
+                </View>
+                
+                <View style={styles.x}>
+                  <Text style={styles.xTex}>X</Text>
                 </View>
 
                  <View style={styles.bloco1} >
@@ -102,7 +107,7 @@ export default function App(){
                 </View>
 
             </View>
-
+            
             <TouchableOpacity style={styles.zerar} activeOpacity={0.7}
             onPress={zerarPlacar}
             >      
