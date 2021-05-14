@@ -5,9 +5,6 @@ export default function App() {
 
   const [modal, setModal] = useState('false');
 
-
-
-
   //Construção das Variaveis play1 
   const [ play1, setPlay1 ] = useState(0);  
 
@@ -16,15 +13,15 @@ export default function App() {
   
   // função Ponto + play1
   function pontoPlay1(){
-    setPlay1(parseInt(play1) +1  )
+    setPlay1(parseInt(play1) + 1  )
   }
 
   // função Ponto + play2
   function pontoPlay2(){
-    setPlay2(parseInt(play2) +1)    
+    setPlay2(parseInt(play2) + 1)    
   }
   
-   // função Ponto - play2
+   // função Ponto - play1
    function  menosPlay1(){
     setPlay1(parseInt(play1) - 1);
     
@@ -38,7 +35,7 @@ export default function App() {
 
   
 
-  // função terminal partida
+  // função terminar partida
   function finalizar(){
     if(play1 > play2){
       Alert.alert("Play 1 Ganhou! ")
