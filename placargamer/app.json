@@ -5,7 +5,7 @@
     "platforms": [      
       "android"      
     ],
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -20,7 +20,8 @@
       "**/*"
     ],  
     "android": {
-      "package": "com.acdeveloper.PlacarGamer"          
+      "package": "com.acdeveloper.PlacarGamer",
+      "versionCode": 5          
     },
     "androidStatusBar":{
       "barStyle": "light-content",

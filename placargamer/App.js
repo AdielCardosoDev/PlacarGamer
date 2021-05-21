@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Text, View, Image, TouchableOpacity, TextInput, StatusBar, Alert, Modal, } from 'react-native';
 import styles from './styles'; 
 
@@ -9,6 +9,10 @@ export default function App(){
   //Construção das Variaveis play2 
   const [ play2, setPlay2 ] = useState(0); 
   
+  // nome do play 1
+  const [nameP1, setNameP1] = useState('');
+  const [nameP2, setNameP2] = useState('');
+
   // função Ponto + play1
   function pontoPlay1(){
     setPlay1(parseInt(play1) + 1  )
@@ -33,11 +37,11 @@ export default function App(){
   // função termina partida
   function finalizar(){
     if(play1 > play2){
-      Alert.alert(`PLAY 1 GANHOU!`);
+      Alert.alert(` Parabéns ${nameP1}, voçe ganhou`);
     }else if(play1 == play2){
-      Alert.alert("EMPATE!")
+      Alert.alert(`Olha só teve um empate entre ${nameP1} e ${nameP2}!`)
     }else{
-      Alert.alert("PLAY 2 GANHOU!");
+      Alert.alert(`Parabéns ${nameP2}, voçe ganhou`);
     }
     zerarPlacar();
   }
@@ -45,9 +49,10 @@ export default function App(){
   function zerarPlacar(){
     setPlay1(0);
     setPlay2(0);
+    
   }
 
-  const [inPlay, setInplay] = useState('');
+  
     return (
         <View style={styles.container}>
             <StatusBar barStyle='dark-content' backgroundColor='#ffffff' />
@@ -61,7 +66,7 @@ export default function App(){
                 <View style={styles.bloco1} >
 
                     <TextInput style={styles.play} placeholder='PLAY 1' placeholderTextColor='#123743' maxLength={7} 
-                    onChangeText={(val) => setInplay(val)}
+                    onChangeText={(val) => setNameP1(val)}
                     />
                     <Text style={styles.res} >{play1}</Text>
                     
@@ -87,7 +92,9 @@ export default function App(){
 
                  <View style={styles.bloco1} >
 
-                    <TextInput style={styles.play} placeholder='PLAY 2' placeholderTextColor='#123743' maxLength={7} />
+                    <TextInput style={styles.play} placeholder='PLAY 2' placeholderTextColor='#123743' maxLength={7} 
+                    onChangeText={(val) => setNameP2(val)}
+                    />
                     <Text style={styles.res} >{play2}</Text>
                     
                     <View style={styles.cont}>
