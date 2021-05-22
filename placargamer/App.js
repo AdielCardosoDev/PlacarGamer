@@ -37,11 +37,11 @@ export default function App(){
   // função termina partida
   function finalizar(){
     if(play1 > play2){
-      Alert.alert(` Parabéns ${nameP1}, voçe ganhou`);
+      Alert.alert(` Parabéns ${nameP1}, você ganhou`);
     }else if(play1 == play2){
       Alert.alert(`Olha só teve um empate entre ${nameP1} e ${nameP2}!`)
     }else{
-      Alert.alert(`Parabéns ${nameP2}, voçe ganhou`);
+      Alert.alert(`Parabéns ${nameP2}, você ganhou`);
     }
     zerarPlacar();
   }
