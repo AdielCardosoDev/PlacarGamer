@@ -10,8 +10,8 @@ export default function App(){
   const [ play2, setPlay2 ] = useState(0); 
   
   // nome do play 1
-  const [nameP1, setNameP1] = useState('');
-  const [nameP2, setNameP2] = useState('');
+  const [nameP1, setNameP1] = useState('Play 1');
+  const [nameP2, setNameP2] = useState('Play 2');
 
   // função Ponto + play1
   function pontoPlay1(){

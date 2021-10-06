@@ -5,13 +5,13 @@
     "platforms": [      
       "android"      
     ],
-    "version": "2.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#fff"
+      "backgroundColor": "#ff6187"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,7 +21,7 @@
     ],  
     "android": {
       "package": "com.acdeveloper.PlacarGamer",
-      "versionCode": 5          
+      "versionCode": 10          
     },
     "androidStatusBar":{
       "barStyle": "light-content",
